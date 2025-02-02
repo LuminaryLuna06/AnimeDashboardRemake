@@ -2,14 +2,12 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import http from "../config/http";
 
-function getAnime(option) {
+function getTopAnime(option) {
   return ({} = useQuery({
-    queryKey: ["animes"],
+    queryKey: ["top-anime"],
     queryFn: async () => {
       return await http
-        .get("/anime", {
-          params: option,
-        })
+        .get(`/top/anime`, { params: option })
         .then((res) => res.data.data)
         .catch((err) => console.log(err));
     },
@@ -17,4 +15,4 @@ function getAnime(option) {
   }));
 }
 
-export default getAnime;
+export default getTopAnime;

@@ -2,13 +2,18 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import http from "../config/http";
 
-function getAnime(option) {
+function getAnimeByGenre(genreName, genreId) {
   return ({} = useQuery({
-    queryKey: ["animes"],
+    queryKey: ["animes", genreName],
     queryFn: async () => {
       return await http
         .get("/anime", {
-          params: option,
+          params: {
+            genres: `${genreId}`,
+            min_score: 8,
+            order_by: "rank",
+            sfw: true,
+          },
         })
         .then((res) => res.data.data)
         .catch((err) => console.log(err));
@@ -17,4 +22,4 @@ function getAnime(option) {
   }));
 }
 
-export default getAnime;
+export default getAnimeByGenre;

@@ -2,14 +2,12 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import http from "../config/http";
 
-function getAnime(option) {
+function getAnimeStatistic() {
   return ({} = useQuery({
-    queryKey: ["animes"],
+    queryKey: ["Frieren Statistics"],
     queryFn: async () => {
       return await http
-        .get("/anime", {
-          params: option,
-        })
+        .get("/anime/52991/statistics")
         .then((res) => res.data.data)
         .catch((err) => console.log(err));
     },
@@ -17,4 +15,4 @@ function getAnime(option) {
   }));
 }
 
-export default getAnime;
+export default getAnimeStatistic;

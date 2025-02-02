@@ -2,14 +2,12 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import http from "../config/http";
 
-function getAnime(option) {
+function getUsersInfo() {
   return ({} = useQuery({
-    queryKey: ["animes"],
+    queryKey: ["users"],
     queryFn: async () => {
       return await http
-        .get("/anime", {
-          params: option,
-        })
+        .get("/users")
         .then((res) => res.data.data)
         .catch((err) => console.log(err));
     },
@@ -17,4 +15,4 @@ function getAnime(option) {
   }));
 }
 
-export default getAnime;
+export default getUsersInfo;
