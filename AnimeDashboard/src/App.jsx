@@ -26,19 +26,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Routes> */
-}
-{
-  /* <Route path="/" element={<Home />} />
-  <Route path="/anime/:id" element={<AnimePage />} />
-  <Route path="/anime" element={<Animes />} />
-  <Route path="/dashboard" element={<Dashboard />} />
-  <Route path="/genres" element={<Genre />} />
-  <Route path="/genres/:genreId/:genreName" element={<GenrePage />} />
-  <Route path="/admin" element={<Admin />} /> */
-}
-{
-  /* </Routes> */
-}
